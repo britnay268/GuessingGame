@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine(@"Choose a difficulty level by number:
-1. Easy - 8 guesses
-2. Medium - 6 guesses
-3. Hard - 4 guesses");
+1. Easy
+2. Medium
+3. Hard
+4. Cheater");
 
 int choice = int.Parse(Console.ReadLine());
 
@@ -16,6 +17,9 @@ switch (choice)
         break;
     case 3:
         Hard();
+        break;
+    case 4:
+        Cheater();
         break;
     default:
         Console.WriteLine("Enter a valid option");
@@ -120,6 +124,37 @@ void Hard()
 
     if (tries == 4)
         Console.WriteLine($"Ooops - You've run out of guesses! Secret Number was: {secretNumber}");
+
+    Console.Read();
+}
+
+void Cheater()
+{
+    Console.WriteLine("Guess the secret number!");
+
+    Random random = new Random();
+
+    int secretNumber = random.Next(1, 100);
+
+    int tries = 0;
+
+    while (true)
+    {
+        tries++;
+        Console.Write($"Your guess ({tries})> ");
+
+        int input = int.Parse(Console.ReadLine());
+
+        if (input == secretNumber)
+        {
+            Console.WriteLine("Success! You've guessed right!");
+            break;
+        }
+        else
+        {
+            Console.WriteLine(@$"You guess is {(input > secretNumber ? "too high" : "too low")}!");
+        }
+    }
 
     Console.Read();
 }
