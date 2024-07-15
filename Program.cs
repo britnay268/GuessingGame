@@ -3,6 +3,15 @@ Console.WriteLine("Guess the secret number!");
 
 int input = int.Parse(Console.ReadLine());
 
-Console.WriteLine($"You've guessed {input}!");
+int secretNumber = 42;
+
+if (input == secretNumber)
+{
+    Console.WriteLine("Success! You've guessed right!"); 
+}
+else
+{
+    Console.WriteLine("Fail - Wrong guess!");
+}
 
 Console.Read();
