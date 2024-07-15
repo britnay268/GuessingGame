@@ -21,7 +21,7 @@ while (tries < 4)
     }
     else
     {
-        Console.WriteLine($"Fail - Wrong guess! You have {4 - tries} guesses left!");
+        Console.WriteLine(@$"You guess is {(input > secretNumber ? "too high" : "too low")}! You have {4 - tries} guesses left!");
     }
 }
 
