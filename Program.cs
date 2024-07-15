@@ -7,7 +7,11 @@ int tries = 0;
 
 while (tries < 4)
 {
+    tries++;
+    Console.Write($"Your guess ({tries})> ");
+
     int input = int.Parse(Console.ReadLine());
+
     if (input == secretNumber)
     {
         Console.WriteLine("Success! You've guessed right!");
@@ -16,7 +20,6 @@ while (tries < 4)
     else
     {
         Console.WriteLine("Fail - Wrong guess! Try Again!");
-        tries++;
     }
 }
 
